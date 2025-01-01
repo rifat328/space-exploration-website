@@ -258,11 +258,13 @@ select {
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    transition: transform 500ms ease-in-out;
+    opacity: 0;
+    transition: opacity 500ms linear, transform 500ms ease-in-out;
 
 }
 
 .large-button:hover::after,
 .large-button:focus::after {
     transform: scale(1.5);
+    opacity: 1;
 }
