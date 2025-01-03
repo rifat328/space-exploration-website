@@ -21,7 +21,15 @@
         <h2 class=" container text-white"><span>03</span> Interactive elements</h2>
     
         <!-- navigation -->
-        <div></div>
+        <div>
+            <nav>
+                <ul class="primary-navigation underline-navigators flex " style="--gap: 8rem">
+                    <li class="active"><a class="uppercase text-white letter-spacing-2" href="#"><span>1</span>Active</a></li>
+                    <li><a class="uppercase text-white letter-spacing-2" href="#"><span>2</span>Hover</a></li>
+                    <li><a class="uppercase text-white letter-spacing-2" href="#"><span>3</span>Idle</a></li>
+                </ul>
+            </nav>
+        </div>
     
         <div class="flex">
             <div style="margin-top: 2rem;">
@@ -29,12 +37,20 @@
                 <a href="#" class="large-button text-dark ff-serif fs-600 uppercase bg-white">Explore</a>
             </div>
     
-            <div style="margin-bottom: 50vh">
+            <div class="flow" style="margin-bottom: 50vh; --flow-space:4rem">
                 <!-- Tabs -->
-    
+                <div class="tabs-list flex underline-navigators" >
+                    <button aria-selected="true" class=" uppercase letter-spacing-2 bg-dark text-accent ff-sans-cond" >Moon</button>
+                    <button aria-selected="false" class=" uppercase letter-spacing-2 bg-dark text-accent ff-sans-cond">Mars</button>
+                    <button aria-selected="false" class=" uppercase letter-spacing-2 bg-dark text-accent ff-sans-cond">Europa</button>
+                </div>
     
                 <!-- Dots -->
-    
+                <div class="dot-indicators flex">
+                    <button aria-selected="true"><span class="sr-only">slide title</span></button>
+                    <button aria-selected="false"><span class="sr-only">slide title</span></button>
+                    <button aria-selected="false"><span class="sr-only">slide title</span></button>
+                </div>
     
                 <!-- Numbers -->
             </div>
