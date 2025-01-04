@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>Space Exploration</title>
+</head>
+
+<body>
+    <div class="container ">
+        <h1 class="text-white">Rifat Hossain</h1>
+    </div>
+
+    <section class="flow" id="interactive-elements">
+        <h2 class=" container text-white"><span>03</span> Interactive elements</h2>
+
+        <!-- navigation -->
+        <div>
+            <nav>
+                <ul class="primary-navigation underline-navigators flex " style="--gap: 8rem">
+                    <li class="active"><a class="uppercase text-white letter-spacing-2"
+                            href="#"><span>1</span>Active</a></li>
+                    <li><a class="uppercase text-white letter-spacing-2" href="#"><span>2</span>Hover</a></li>
+                    <li><a class="uppercase text-white letter-spacing-2" href="#"><span>3</span>Idle</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="flex">
+            <div style="margin-top: 2rem;">
+                <!-- explore button -->
+                <a href="#" class="large-button text-dark ff-serif fs-600 uppercase bg-white">Explore</a>
+            </div>
+
+            <div class="flow" style="margin-bottom: 50vh; --flow-space:4rem">
+                <!-- Tabs -->
+                <div class="tabs-list flex underline-navigators">
+                    <button aria-selected="true"
+                        class=" uppercase letter-spacing-2 bg-dark text-accent ff-sans-cond">Moon</button>
+                    <button aria-selected="false"
+                        class=" uppercase letter-spacing-2 bg-dark text-accent ff-sans-cond">Mars</button>
+                    <button aria-selected="false"
+                        class=" uppercase letter-spacing-2 bg-dark text-accent ff-sans-cond">Europa</button>
+                </div>
+
+                <!-- Dots -->
+                <div class="dot-indicators flex">
+                    <button aria-selected="true"><span class="sr-only">slide title</span></button>
+                    <button aria-selected="false"><span class="sr-only">slide title</span></button>
+                    <button aria-selected="false"><span class="sr-only">slide title</span></button>
+                </div>
+
+                <!-- Numbers -->
+
+                <div class="number-indicators flex ff-serif fs-300" style="flex-direction: column;">
+                    <button aria-selected="true"><span class="sr-only">number 1 </span>1</button>
+                    <button aria-selected="false"><span class="sr-only">number 2 </span>2</button>
+                    <button aria-selected="false"><span class="sr-only">number 3 </span>3</button>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <script src="index.js"></script>
+</body>
+
+</html>
