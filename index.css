@@ -348,10 +348,29 @@ select {
 
 /* Component Navigation */
 .primary-navigation {
+    --underline-gap: 1rem;
     list-style: none;
     padding: 0;
     margin: 0;
-    --underline-gap: 2rem;
+}
+
+@media (max-width: 35rem) {
+    .primary-navigation {
+        --underline-gap: 0.5rem;
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 30%;
+        background: black;
+        list-style: none;
+        padding: min(20rem, 15vh) 2rem;
+        margin: 0;
+        flex-direction: column;
+    }
+
+    .primary-navigation.underline-indicator>.active {
+        border: 0;
+    }
+
 }
 
 .primary-navigation a {
@@ -363,22 +382,21 @@ select {
     margin-right: .5em;
 }
 
-.underline-navigators>* {
+.underline-indicator>* {
+    cursor: pointer;
     padding: var(--underline-gap, 1rem) 0;
     border: 0;
-    cursor: pointer;
-    border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
-
+    border-bottom: .2rem solid hsl(var(--clr-white) / 0);
 }
 
-.underline-navigators>*:hover,
-.underline-navigators>*:focus {
+.underline-indicator>*:hover,
+.underline-indicator>*:focus {
     border-color: hsl(var(--clr-white) / .5);
 
 }
 
-.underline-navigators>.active,
-.underline-navigators>[aria-selected="true"] {
+.underline-indicator>.active,
+.underline-indicator>[aria-selected="true"] {
     color: hsl(var(--clr-white) / 1);
     border-color: hsl(var(--clr-white) / 1);
 
@@ -444,27 +462,30 @@ select {
 /* ------------------- */
 
 /* home */
-body {
-    background-size: cover;
-    background-position: bottom center;
-}
-
 .home {
+    background-size: cover;
 
     background-position: bottom center;
     background-image: url(./assets/home/background-home-mobile.jpg);
 
-
 }
 
-/* @media (max-width:34.99rem){
+@media (max-width:34.99rem) {
+    .grid-container--home {
+        margin-top: auto;
+        row-gap: 60%;
+
+    }
+
+    /* below 35rem background img bug !!!
     .home{
         background-size: cover ;
-        background-position: bottom center ;
+        background-position: bottom center;
         background-image: url(./assets/home/background-home-mobile.jpg);
-        height: 100vh;
-    }
-} */
+        
+    } */
+}
+
 @media (min-width:35rem) {
     .home {
         background-size: cover;
