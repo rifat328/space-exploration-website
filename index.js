@@ -17,32 +17,69 @@ navToggle.addEventListener("click", () => {
 const tabList = document.querySelector('[role="tablist"]');
 const tabs = tabList.querySelectorAll('[role="tab"]');
 
-tabList.addEventListener("keydown", (e) => {
-  const keydownLeft = 37;
-  const keydownRight = 39;
+tabList.addEventListener("keydown", changeTabFocus);
 
-  let tabPointer = 0;
-  // while (tabPointer < 4) {
-  //   tabs[tabPointer].getAttribute("tabindex");
-  //   tabs[tabPointer].setAttribute("tabindex", "-1");
-  //   if (e.keyCode === keydownRight) {
-  //     tabPointer = +1;
-  //     tabs[tabPointer].setAttribute("tabindex", "-1");
-  //     console.log(tabPointer);
-  //   } else if (e.keyCode === keydownRight) {
-  //     tabs[tabPointer].setAttribute("tabindex", "-1");
-  //     tabPointer = -1;
-  //     console.log(tabPointer);
-  //   } else {
-  //     break;
-  //     console.log("Braked....");
-  //   }
-  // }
+tabs.forEach((tab) => {
+  tab.addEventListener("click", changeTabPanal);
+});
 
-  console.log(tabs[0].getAttribute("tabindex"));
+const keydownLeft = 37;
+const keydownRight = 39;
+let tabPointer = 0;
+
+function changeTabFocus(e) {
+  if (e.keyCode === keydownRight || e.keyCode === keydownLeft) {
+    tabs[tabPointer].setAttribute("tabindex", -1);
+  }
+  if (e.keyCode === keydownRight) {
+    tabPointer++;
+    if (tabPointer >= tabs.length) {
+      tabPointer = 0;
+    }
+  }
+  if (e.keyCode === keydownLeft) {
+    tabPointer--;
+    if (tabPointer < 0) {
+      tabPointer = tabs.length - 1;
+    }
+  }
+
+  tabs[tabPointer].setAttribute("tabindex", 0);
+  tabs[tabPointer].focus();
+
   // change the tabindex of the current tab to -1
 
   // if the right key is pushed, move to the next tab on the right
 
   // if the left key is pushed, move to the next tab on the left
-});
+}
+
+function changeTabPanal(e) {
+  const targetTab = e.target;
+  const targetPanal = targetTab.getAttribute("aria-controls");
+  const targetImage = targetTab.getAttribute("data-image");
+
+  const tabContainer = targetTab.parentNode;
+  const mainContainer = tabContainer.parentNode;
+  tabContainer
+    .querySelector('[aria-selected="true"]')
+    .setAttribute("aria-selected", false);
+
+  targetTab.setAttribute("aria-selected", true);
+
+  hideContent(mainContainer, '[role="tabpanel"]');
+  showContent(mainContainer, [`#${targetPanal}`]);
+
+  hideContent(mainContainer, "picture");
+  showContent(mainContainer, `#${targetImage}`);
+}
+
+function hideContent(parent, content) {
+  parent
+    .querySelectorAll(content)
+    .forEach((item) => item.setAttribute("hidden", true));
+}
+
+function showContent(parent, content) {
+  parent.querySelector(content).removeAttribute("hidden");
+}
